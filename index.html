@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <img src="https://shorturl.at/X0nap" class="logo"/>
+        <img src="https://cdn-icons-png.freepik.com/512/219/219989.png" class="user"/>
+        <span class="name">Tori</span>
+        <span class="role">Orgainser</span>
+    </div>
+    <div class="list">
+        <h2>Patient History</h2>
+        <!-- Controls for filtering and searching -->
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search table">
+        </div>
+        
+        <div class="select">
+            <label for="filter"></label>
+            <select id="filter">
+                <option value="">Status All</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+
+            <label for="breed-filter"></label>
+            <select id="breed-filter">
+                <option value="">Breed All</option>
+                <option value="German Shepherd">German Shepherd</option>
+                <option value="Bulldog">Bulldog</option>
+                <option value="Golden Retriever">Golden Retriever</option>
+                <option value="Alaskan Malamute">Alaskan Malamute</option>
+                <option value="Husky">Husky</option>
+            </select>
+        </div>
+
+        <div class="pages">
+            <label for="rowsPerPage">Rows per page:</label>
+            <select id="rowsPerPage">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+            </select>
+        </div>
+        
+        <button id="openModal">Add New Client</button>
+        <div id="alertBox"></div>
+    </div>
+    <!-- Modal for adding/editing clients -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add New Client</h2>
+            <input type="text" id="petname" placeholder="Enter Pet Name" required>
+            <label for="status">Status:</label>
+            <select id="status">
+                <option value="">Please choose status</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option> 
+                <option value="High">High</option>   
+            </select>
+            <input type="text" id="parentname" placeholder="Enter Parent Name" required>
+            <label for="breed">Breed:</label>
+            <select id="breed">
+                <option value="">Please choose breed</option>
+                <option value="German Shepherd">German Shepherd</option>
+                <option value="Bulldog">Bulldog</option> 
+                <option value="Golden Retriever">Golden Retriever</option>   
+                <option value="Alaskan Malamute">Alaskan Malamute</option>
+                <option value="Husky">Husky</option>
+            </select>
+            <label for="gender">Gender:</label>
+            <select id="gender">
+                <option value="">Please choose gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>     
+            </select>
+            <input type="date" id="dob" required>
+            <input type="text" id="address" placeholder="Enter Address" required>
+            <input type="tel" id="contact" placeholder="Enter Contact Number" required>
+            <label for="city">City:</label>
+            <select id="city">
+                <option value="">Please choose city</option>
+                <option value="Yangon">Yangon</option>
+                <option value="Mandalay">Mandalay</option> 
+                <option value="Bago">Bago</option>   
+                <option value="Nay Pyi Taw">Nay Pyi Taw</option>   
+            </select>
+            <label for="township">Township:</label>
+            <select id="township">
+                <option value="">Please choose township</option>
+                <option value="Ahlone">Ahlone</option>
+                <option value="San Chaung">San Chaung</option> 
+                <option value="North Okkalapa">North Okkalapa</option>   
+                <option value="North Dagon">North Dagon</option>
+                <option value="Insein">Insein</option>
+            </select>
+            <button class="add" id="saveBtn">Save</button>
+            <button class="cancel" id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Table for displaying patient history -->
+    <table id="patientTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Pet Name</th>
+                <th>Status</th>
+                <th>Parent Name</th>
+                <th>Breed</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added dynamically -->
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <!-- Pagination buttons will be dynamically added here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
