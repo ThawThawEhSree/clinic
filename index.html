@@ -43,7 +43,6 @@
         <select name="status" id="filter">
           <option value="">Status All</option>
           <option value="Low">Low</option>
-          <option value="Middle">Middle</option>
           <option value="High">High</option>
         </select>
         <select name="breed" id="breed-filter">
@@ -57,21 +56,23 @@
       </div>
       <table id="patient-table" class="patient-table">
         <thead>
-          <tr>
-            <th><input type="checkbox"></th>
-            <th>ID</th>
-            <th>Pet Name</th>
-            <th>Status</th>
-            <th>Parent</th>
-            <th>Breed</th>
-            <th>Gender</th>
-            <th>Date of Birth</th>
-            <th>Contact Phone No.</th>
-            <th>Address</th>
-            <th>Actions</th>
-          </tr>
+           <tr> 
+                <th><input type="checkbox"></th>
+                <th>ID</th>
+                <th>Pet Name</th>
+                <th>Status</th>
+                <th>Parent</th>
+                <th>Breed</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Contact Phone No.</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+                <!-- Table rows will be added dynamically-->
+        </tbody>
       </table>
     </div>
     <div id="add-patient-form" class="modal hidden">
@@ -92,7 +93,6 @@
               <select id="modal-status">
                 <option>Please choose status</option>
                 <option>Low</option>
-                <option>Middle</option>
                 <option>High</option>
               </select>
             </div>

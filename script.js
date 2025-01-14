@@ -101,7 +101,7 @@ saveBtn.addEventListener("click", () => {
   }
 
   const statusIcon =
-    status === "Under Treatment"
+    status === "Low"
       ? "images/allergy.png"
       : "images/picky eater.png"; 
 
@@ -169,7 +169,7 @@ updateBtn.addEventListener("click", () => {
   }
 
   const statusIcon =
-    status === "Under Treatment"
+    status === "Low"
       ? "images/allergy.png"
       : "images/picky eater.png";
 
@@ -194,22 +194,44 @@ const searchInput = document.getElementById('search');
 
 // Filter by status
 filterSelect.addEventListener('change', () => {
-  const filterValue = filterSelect.value;
-  const rows = patientTable.querySelectorAll('tr');
-
-  rows.forEach(row => {
-      const status = row.cells[3].textContent;
-      row.style.display = filterValue === '' || status === filterValue ? '' : 'none';
+    const filterValues = Array.from(filterSelect.selectedOptions).map(option => option.value.toLowerCase());  // Get all selected values
+    const rows = patientTable.querySelectorAll('tbody tr');
+  
+    rows.forEach(row => {
+      const statusCell = row.cells[3]; // Status is in the 4th column (index 3)
+      const statusText = statusCell.textContent.trim().toLowerCase();  // Get status text (Low or High)
+  
+      // If no filter selected, show all rows
+      if (filterValues.length === 0 || filterValues.includes(statusText)) {
+        row.style.display = '';  // Show the row
+      } else {
+        row.style.display = 'none';  // Hide the row
+      }
+    });
+  
+    // Update the status column with images based on the selected status
+    rows.forEach(row => {
+      const statusCell = row.cells[3]; // Status is in the 4th column (index 3)
+      const statusText = statusCell.textContent.trim().toLowerCase();  // Get status text (Low or High)
+  
+      if (statusText === "low") {
+        statusCell.innerHTML = `<img src="images/allergy.png" alt="Low Status" class="icon">`;
+      } else if (statusText === "high") {
+        statusCell.innerHTML = `<img src="images/picky eater.png" alt="High Status" class="icon">`;
+      }
+    });
   });
-});
+  
+  
+  
 
 // Filter by breed
 BreedSelect.addEventListener('change', () => {
   const breedValue = BreedSelect.value;
-  const rows = patientTable.querySelectorAll('tr');
+  const rows = patientTable.querySelectorAll('tbody tr');
 
   rows.forEach(row => {
-      const breed = row.cells[5].textContent;
+      const breed = row.cells[5].textContent.trim();
       row.style.display = breedValue === '' || breed === breedValue ? '' : 'none';
   });
 });
@@ -217,7 +239,7 @@ BreedSelect.addEventListener('change', () => {
 // Search functionality
 searchInput.addEventListener('input', () => {
   const searchValue = searchInput.value.toLowerCase();
-  const rows = patientTable.querySelectorAll('tr');
+  const rows = patientTable.querySelectorAll('tbody tr');
 
   rows.forEach(row => {
       const Petname = row.cells[2].textContent.toLowerCase();
