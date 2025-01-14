@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="list">
       <div class="header">
         <h2>Patient List</h2>
         <div class="controls">
@@ -41,18 +41,18 @@
         <input type="text" placeholder="Search table" class="search-input" id="search" />
         <img src="images/search.png" allt="Search" class="search-icon" />
         <select name="status" id="filter">
-          <option>Status All</option>
-          <option>Low</option>
-          <option>Middle</option>
-          <option>High</option>
+          <option value="">Status All</option>
+          <option value="Low">Low</option>
+          <option value="Middle">Middle</option>
+          <option value="High">High</option>
         </select>
         <select name="breed" id="breed-filter">
-          <option>Breed All</option>
-          <option>German Shepherd</option>
-          <option>Bulldog</option>
-          <option>Golden Retriever</option>
-          <option>Alaskan Malamute</option>
-          <option>Husky</option>
+          <option value="">Breed All</option>
+          <option value="German Shepherd">German Shepherd</option>
+          <option value="Bulldog">Bulldog</option>
+          <option value="Golden Retriever">Golden Retriever</option>
+          <option value="Alaskan Malamute">Alaskan Malamute</option>
+          <option value="Husky">Husky</option>
         </select>
       </div>
       <table id="patient-table" class="patient-table">

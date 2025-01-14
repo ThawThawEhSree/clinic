@@ -187,6 +187,7 @@ updateBtn.addEventListener("click", () => {
   document.querySelector("#patient-form").reset();
 });
 
+const patientTable = document.getElementById('patient-table');
 const filterSelect = document.getElementById('filter');
 const BreedSelect = document.getElementById('breed-filter');
 const searchInput = document.getElementById('search');
@@ -197,7 +198,7 @@ filterSelect.addEventListener('change', () => {
   const rows = patientTable.querySelectorAll('tr');
 
   rows.forEach(row => {
-      const status = row.cells[2].textContent;
+      const status = row.cells[3].textContent;
       row.style.display = filterValue === '' || status === filterValue ? '' : 'none';
   });
 });
@@ -208,7 +209,7 @@ BreedSelect.addEventListener('change', () => {
   const rows = patientTable.querySelectorAll('tr');
 
   rows.forEach(row => {
-      const breed = row.cells[4].textContent;
+      const breed = row.cells[5].textContent;
       row.style.display = breedValue === '' || breed === breedValue ? '' : 'none';
   });
 });
@@ -219,13 +220,13 @@ searchInput.addEventListener('input', () => {
   const rows = patientTable.querySelectorAll('tr');
 
   rows.forEach(row => {
-      const Petname = row.cells[1].textContent.toLowerCase();
-      const Parentname = row.cells[3].textContent.toLowerCase();
-      const Gender = row.cells[5].textContent.toLowerCase();
-      const DOB = row.cells[6].textContent.toLowerCase();
-      const Address = row.cells[7].textContent.toLowerCase();
+      const Petname = row.cells[2].textContent.toLowerCase();
+      const Parentname = row.cells[4].textContent.toLowerCase();
+      const Gender = row.cells[6].textContent.toLowerCase();
+      const DOB = row.cells[7].textContent.toLowerCase();
       const Contact = row.cells[8].textContent.toLowerCase();
-      row.style.display = Petname.includes(searchValue) || Parentname.includes(searchValue) || Gender.includes(searchValue) || DOB.includes(searchValue) || Address.includes(searchValue) || Contact.includes(searchValue) ? '' : 'none';
+      const Address = row.cells[9].textContent.toLowerCase();
+      row.style.display = Petname.includes(searchValue) || Parentname.includes(searchValue) || Gender.includes(searchValue) || DOB.includes(searchValue) || Contact.includes(searchValue) || Address.includes(searchValue) ? '' : 'none';
   });
 });
 
